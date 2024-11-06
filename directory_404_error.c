@@ -1,6 +1,6 @@
-int fcn.00000f54 (int x0, int x1) {
+int directory_404_error (int x0, int x1) {
     loc_0x00000f54:
-        // CALL XREF from fcn.00001038 @ 0x1890(x)
+        // CALL XREF from Write_error @ 0x1890(x)
         sp = sp - 0x50
         // DATA XREFS from sym.imp.snprintf @ 0xb44(r), 0xb48(r)
         [var_30h] = (x20, 2)
@@ -19,7 +19,7 @@ int fcn.00000f54 (int x0, int x1) {
         goto loc_0x00000f7c;
     loc_0x00000f98:
         // DATA XREFS from sym.imp.syscall @ 0xbc4(r), 0xbc8(r)
-        // CODE XREF from fcn.00000f54 @ 0xf78(r)
+        // CODE XREF from directory_404_error @ 0xf78(r)
         x0 = x1       // const char *str
         sym.imp.atof () // double atof(0)
         // DATA XREFS from sym.imp.sprintf @ 0xbd4(r), 0xbd8(r)
@@ -31,9 +31,9 @@ int fcn.00000f54 (int x0, int x1) {
         
     loc_0x00000fb0:
         // DATA XREFS from sym.imp.readdir @ 0xbf4(r), 0xbf8(r)
-        // CODE XREF from fcn.00000f54 @ 0xf94(r)
+        // CODE XREF from directory_404_error @ 0xf94(r)
         w1 = [x9 + 0x28] // "P1" // elf_shdr
-        [arg_50hx18] = x8
+        [arg_50hx18] = x8 // (cstr 0x000001b0) ","
         // DATA XREFS from sym.imp.fopen @ 0xc04(r), 0xc08(r)
         w8 = 4
         [arg_50hx20] = x8
@@ -56,9 +56,9 @@ int fcn.00000f54 (int x0, int x1) {
         goto 0xfb0
          goto loc_0x00000fb0
     loc_0x00000fb0: // orphan
-         // DATA XREFS from sym.imp.readdir @ 0xbf4(r), 0xbf8(r) // CODE XREF from fcn.00000f54 @ 0xf94(r)
+         // DATA XREFS from sym.imp.readdir @ 0xbf4(r), 0xbf8(r) // CODE XREF from directory_404_error @ 0xf94(r)
          w1 = [x9 + 0x28]         // "P1" // elf_shdr
-         [arg_50hx18] = x8 // DATA XREFS from sym.imp.fopen @ 0xc04(r), 0xc08(r)
+         [arg_50hx18] = x8        // (cstr 0x000001b0) "," // DATA XREFS from sym.imp.fopen @ 0xc04(r), 0xc08(r)
          w8 = 4
          [arg_50hx20] = x8 // DATA XREFS from sym.imp.pclose @ 0xc14(r), 0xc18(r)
          [var_8h] = (x19, 2)
@@ -68,20 +68,20 @@ int fcn.00000f54 (int x0, int x1) {
          // DATA XREFS from sym.imp.__libc_init @ 0xc24(r), 0xc28(r)
          x8 = section..data       // 0x13000
          x0 = [x8 + 4] // DATA XREFS from sym.imp.__cxa_atexit @ 0xc34(r), 0xc38(r)
-         x2 = sp + 0x18
+         x2 = sp + 0x18           // (cstr 0x000001b0) ","
          w3 = 1
          x4 = sp + 8
-         w5 = 1 // DATA XREF from entry0 @ 0xc8c(r)
+         w5 = 1 // DATA XREF from main @ 0xc8c(r)
          x6 = 0
-         sym.imp.syscall () // DATA XREF from entry0 @ 0xc7c(r)
+         sym.imp.syscall () // DATA XREF from main @ 0xc7c(r)
          if (x0 != 1)
          if (eq) 
          goto loc_0x00001010
     loc_0x00000ff0: // orphan
-         // DATA XREF from entry0 @ 0xc88(r) // CODE XREFS from fcn.00000f54 @ 0xf7c(r), 0xfc4(x), 0x1030(x)
+         // DATA XREF from main @ 0xc88(r) // CODE XREFS from directory_404_error @ 0xf7c(r), 0xfc4(x), 0x1030(x)
          x8 = [x20 + 0x28]        // "P1" // elf_shdr
-         x9 = [x29 -0x18] // DATA XREF from entry0 @ 0xc84(r)
-         (a, b) = compare (x8, x9) // DATA XREF from fcn.00001038 @ 0x1884(r)
+         x9 = [x29 -0x18] // DATA XREF from main @ 0xc84(r)
+         (a, b) = compare (x8, x9) // DATA XREF from Write_error @ 0x1884(r)
          if (eq) 
          goto loc_0x00001034
     loc_0x00001000: // orphan
@@ -92,7 +92,7 @@ int fcn.00000f54 (int x0, int x1) {
 
         return x0;
     loc_0x00001010: // orphan
-         // CODE XREF from fcn.00000f54 @ 0xfec(x)
+         // CODE XREF from directory_404_error @ 0xfec(x)
          x0 = 0x1000
          x0 = x0 + 0xcf4          // 0x1cf4 // "Write error" // const char *s // str.Write_error
          sym.imp.perror () // void perror("Write error")
@@ -104,8 +104,8 @@ int fcn.00000f54 (int x0, int x1) {
          
          goto loc_0x00000ff0
     loc_0x00001034: // orphan
-         // CODE XREF from fcn.00000f54 @ 0xffc(x)
-         sym.imp.__stack_chk_fail () // fcn.00001038 // void __stack_chk_fail(void)
+         // CODE XREF from directory_404_error @ 0xffc(x)
+         sym.imp.__stack_chk_fail () // Write_error // void __stack_chk_fail(void)
 
         return x0;
 }

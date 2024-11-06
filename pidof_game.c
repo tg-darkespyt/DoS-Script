@@ -1,6 +1,6 @@
-int fcn.00000d98 (int x0, int x1) {
+int pidof_game (int x0, int x1) {
     loc_0x00000d98:
-        // CALL XREF from fcn.00001038 @ 0x1064(x)
+        // CALL XREF from Write_error @ 0x1064(x)
         [sp - 0x60]! = (x28, 2)
         [sp + 0x10] = (x26, 2)
         [sp + 0x20] = (x24, 2)
@@ -10,13 +10,13 @@ int fcn.00000d98 (int x0, int x1) {
         x29 = sp + 0x50
         sp = sp - 0x1e0
         mrs x28, tpidr_el0
-        x8 = [x28 + 0x28] // [0x1038:4]=0xd10243ff // fcn.00001038 // "P1" // elf_shdr
+        x8 = [x28 + 0x28] // [0x1038:4]=0xd10243ff // Write_error // "P1" // elf_shdr
         x19 = x0      // arg1
         x1 = 0x1000
         x1 = x1 + 0xd24 // 0x1d24 // "pidof %s" // const char *format // str.pidof__s
         x0 = x29 - 0xa8 // char *s
         x2 = x19      //  ...
-        [x29 -0x60] = x8
+        [x29 -0x60] = x8 // "P1"
         sym.imp.sprintf () // int sprintf("", "pidof %s", 0)
         x1 = 0x1000
         x1 = x1 + 0xe9b // const char *mode // "r"
@@ -26,7 +26,7 @@ int fcn.00000d98 (int x0, int x1) {
         if (!x0) goto 0xe1c // unlikely
         goto loc_0x00000df4;
     loc_0x00000e1c:
-        // CODE XREF from fcn.00000d98 @ 0xdf0(x)
+        // CODE XREF from pidof_game @ 0xdf0(x)
         x0 = 0x1000
         x0 = x0 + 0xd2d // 0x1d2d // "/proc" // str._proc
         sym.imp.opendir ()
@@ -34,11 +34,11 @@ int fcn.00000d98 (int x0, int x1) {
         if (!x0) goto 0xef4 // unlikely
         goto loc_0x00000e30;
     loc_0x00000ef4:
-        // CODE XREF from fcn.00000d98 @ 0xe2c(x)
+        // CODE XREF from pidof_game @ 0xe2c(x)
         x21 = 0
         
     loc_0x00000ef8:
-        // CODE XREFS from fcn.00000d98 @ 0xe3c(x), 0xedc(x), 0xef0(x)
+        // CODE XREFS from pidof_game @ 0xe3c(x), 0xedc(x), 0xef0(x)
         x0 = x20
         sym.imp.readdir ()
         x19 = x0
@@ -51,9 +51,9 @@ int fcn.00000d98 (int x0, int x1) {
         goto loc_0x00000e1c;
         return x0;
     loc_0x00000f20:
-        // DATA XREFS from section..plt @ 0xac8(r), 0xacc(r)
-        // CODE XREFS from fcn.00000d98 @ 0xe18(r), 0xf18(r)
-        x8 = [x28 + 0x28] // [0x1038:4]=0xd10243ff // fcn.00001038 // "P1" // elf_shdr
+        // DATA XREFS from plt_hook @ 0xac8(r), 0xacc(r)
+        // CODE XREFS from pidof_game @ 0xe18(r), 0xf18(r)
+        x8 = [x28 + 0x28] // [0x1038:4]=0xd10243ff // Write_error // "P1" // elf_shdr
         x9 = [x29 -0x60]
         // DATA XREFS from sym.imp.popen @ 0xae4(r), 0xae8(r)
         (a, b) = compare (x8, x9)
@@ -61,8 +61,8 @@ int fcn.00000d98 (int x0, int x1) {
         goto loc_0x00000f30;
     loc_0x00000f50:
         // DATA XREFS from sym.imp.__errno @ 0xb34(r), 0xb38(r)
-        // CODE XREF from fcn.00000d98 @ 0xf2c(r)
-        sym.imp.__stack_chk_fail () // fcn.00000f54 // void __stack_chk_fail(void)
+        // CODE XREF from pidof_game @ 0xf2c(r)
+        sym.imp.__stack_chk_fail () // directory_404_error // void __stack_chk_fail(void)
         return x0;
     loc_0x00000e30: // orphan
          x0 = x20
@@ -81,7 +81,7 @@ int fcn.00000d98 (int x0, int x1) {
          x25 = x25 + 0xe9b        // "r"
 
     loc_0x00000e60: // orphan
-         // CODE XREF from fcn.00000d98 @ 0xeec(x)
+         // CODE XREF from pidof_game @ 0xeec(x)
          x26 = x21 + 0x13
          x0 = x26                 // const char *s1
          x1 = x22                 // const char *s2
@@ -124,7 +124,7 @@ int fcn.00000d98 (int x0, int x1) {
          if (!w27) 
          goto loc_0x00000ef8
     loc_0x00000ee0: // orphan
-         // CODE XREFS from fcn.00000d98 @ 0xe70(x), 0xe80(x), 0xe8c(x), 0xeb0(x)
+         // CODE XREFS from pidof_game @ 0xe70(x), 0xe80(x), 0xe8c(x), 0xeb0(x)
          x0 = x20
          sym.imp.readdir ()
          x21 = x0
@@ -134,7 +134,7 @@ int fcn.00000d98 (int x0, int x1) {
          
          goto loc_0x00000ef8
     loc_0x00000ef8: // orphan
-         // CODE XREFS from fcn.00000d98 @ 0xe3c(x), 0xedc(x), 0xef0(x)
+         // CODE XREFS from pidof_game @ 0xe3c(x), 0xedc(x), 0xef0(x)
          x0 = x20
          sym.imp.readdir ()
          x19 = x0
@@ -143,13 +143,13 @@ int fcn.00000d98 (int x0, int x1) {
          if (!x19) 
          goto loc_0x00000f1c
     loc_0x00000f10: // orphan
-         // CODE XREF from fcn.00001038 @ 0x1778(w)
+         // CODE XREF from Write_error @ 0x1778(w)
          x0 = x21 + 0x13          // const char *str
          sym.imp.atoi () // int atoi("")
          
          goto loc_0x00000f20
     loc_0x00000f1c: // orphan
-         // CODE XREF from fcn.00000d98 @ 0xf0c(x)
+         // CODE XREF from pidof_game @ 0xf0c(x)
          w0 = 0
 
     loc_0x00000f30: // orphan
